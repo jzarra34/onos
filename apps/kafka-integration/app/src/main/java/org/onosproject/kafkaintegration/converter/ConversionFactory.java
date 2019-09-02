@@ -22,6 +22,8 @@ import java.util.Map;
 
 import static org.onosproject.kafkaintegration.api.dto.OnosEvent.Type.DEVICE;
 import static org.onosproject.kafkaintegration.api.dto.OnosEvent.Type.LINK;
+import static org.onosproject.kafkaintegration.api.dto.OnosEvent.Type.HOST;
+
 
 /**
  * Returns the appropriate converter object based on the ONOS event type.
@@ -34,6 +36,7 @@ public final class ConversionFactory {
             new HashMap<Type, EventConverter>() {
                 {
                     put(DEVICE, new DeviceEventConverter());
+                    put(HOST, new HostEventConverter());                    
                     put(LINK, new LinkEventConverter());
                 }
             };
